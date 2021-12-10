@@ -69,7 +69,7 @@
                                     <div class="card-body">
                                         <form action="cek_login.php" method="POST">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="username" id="inputEmail" type="text" placeholder="Usermane" />
+                                                <input class="form-control" name="username" id="inputEmail" type="text" placeholder="Usermane" required/>
                                                 <label for="inputEmail">Username</label>
                                             </div>
                                             <div class="form-floating mb-3">
@@ -84,7 +84,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="form_register.php">Butuh akun/register</a></div>
                                     </div>
                                 </div>
                             </div>

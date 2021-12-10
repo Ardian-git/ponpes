@@ -42,9 +42,12 @@ include('koneksi.php');
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-success form-control">Tambah</button>
+                        <button class="btn btn-success">Tambah</button>
+                        <a href="" calss="btn btn-dark">Kembali</a>
                     </div>
                 </form>
+
+                
             </div>
         </div>
     </div>

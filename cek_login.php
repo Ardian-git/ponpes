@@ -17,7 +17,10 @@
                         header('location:index.php');
 
                     } else {
-                        echo "Username dan Password Salah";
+                        echo '<script>
+                            alert("username atau password salah");
+                            window.location.href="login-user.php";
+                            </script>';
                     }
 
                 } else {
