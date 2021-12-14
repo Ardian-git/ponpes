@@ -1,9 +1,3 @@
-<?php 
-include('koneksi.php');
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +12,8 @@ include('koneksi.php');
     <div class="container">
         <div class="card">
             <div class="card-body" style="background:#EDEDED;">
-                <h2 style="text-align:center;">Form Input Berita</h2>
-                <form action="simpan-berita.php" method="POST" enctype="multipart/form-data">
+                <h2 style="text-align:center;">Form Input Cerpen</h2>
+                <form action="simpan_artikel.php" method="POST" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label>Judul</label>
@@ -28,12 +22,17 @@ include('koneksi.php');
 
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <textarea name="konten" ></textarea>
+                        <textarea name="isi_a" ></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Cover</label>
                         <input type="file" name="cover" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Penulis</label>
+                        <input type="text" name="penulis" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -43,11 +42,9 @@ include('koneksi.php');
 
                     <div class="form-group">
                         <button class="btn btn-success">Tambah</button>
-                        <a href="berita.php" class="btn btn-dark">Kembali</a>
+                        <a href="artikel.php" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
-
-                
             </div>
         </div>
     </div>

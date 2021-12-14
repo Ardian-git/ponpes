@@ -50,7 +50,7 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                             <?php foreach($data5 as $ul) { ?>
                                 <div class="carousel-item">
                                     <p style="font-size:small; color:white; position: absolute; top:310px; left:20px;"><a href="kbt.php"><span class="badge badge-dark">Timba Ilmu</span></a> <?php echo $ul['tanggal']; ?></p>           
-                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="ti.php?id=<?php echo $ul['id']; ?>" style="color:white"><?php echo $ul['judul']; ?></a></h2>
+                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="ti.php?id=<?php echo $ul['id_artikel']; ?>" style="color:white"><?php echo $ul['judul']; ?></a></h2>
                                     <img src="admin/ti_img/<?php echo $ul['cover']; ?>" class="d-block w-100" alt="...">
                                 </div>
                             <?php } ?>
@@ -172,7 +172,7 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <img src="admin/ti_img/<?php echo $ti['cover']; ?>" width=" 315px">
                             </div>
                             <div class="card" style="width:300px;  position:absolute; top:120px; left:23px;">
-                                <a href="ti.php?id=<?php echo $ti['id']; ?>" style="color:black; padding:5px;"><b><?php echo $ti['judul']; ?></b></a>
+                                <a href="artikel.php?id=<?php echo $ti['id_artikel']; ?>" style="color:black; padding:5px;"><b><?php echo $ti['judul']; ?></b></a>
                                 <p style="font-size:small; padding:5px;"><a href="kti.php"><span class="badge badge-dark">Timba ilmu</span></a> <?php echo $ti['tanggal']; ?></p>
                             </div>
                         </div>

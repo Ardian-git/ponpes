@@ -47,7 +47,8 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-success form-control">Update</button>
+                        <button class="btn btn-success">Update</button> |
+                        <a href="detail_berita.php?id=<?php echo $data[0]['id_berita']; ?>" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
             </div>

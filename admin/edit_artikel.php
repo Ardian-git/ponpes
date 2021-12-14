@@ -2,6 +2,10 @@
 include('koneksi.php');
 
 
+$id =$_GET['id'];
+$query=mysqli_query($kon, "SELECT * FROM artikel where id_artikel='$id' LIMIT 1");
+$data=mysqli_fetch_all($query, MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -10,47 +14,51 @@ include('koneksi.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form-Input-Data</title>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>
 </head>
 <body>
-    <div class="container">
+
+<div class="container">
         <div class="card">
             <div class="card-body" style="background:#EDEDED;">
-                <h2 style="text-align:center;">Form Input Berita</h2>
-                <form action="simpan-berita.php" method="POST" enctype="multipart/form-data">
-
+                <h2 style="text-align:center;">Form Edit Cerpen</h2>
+                <form action="update_artikel.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value=<?php echo $data[0]['id_artikel']; ?>>
                     <div class="form-group">
                         <label>Judul</label>
-                        <input type="text" name="judul" class="form-control">
+                        <input type="text" name="judul" value="<?php echo $data[0]['judul']; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea name="konten" ></textarea>
+                        <label>DESkripsi</label>
+                        <textarea name="konten" value="<?php echo $data[0]['isi_a']; ?>"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Cover</label>
-                        <input type="file" name="cover" class="form-control">
+                        <input type="file" name="cover" value="<?php echo $data[0]['cover']; ?>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Penulis</label>
+                        <input type="text" name="penulis" value="<?php echo $data[0]['penulis']; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label>Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control">
+                        <input type="date" name="tanggal" value="<?php echo $data[0]['tanggal']; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-success">Tambah</button>
-                        <a href="berita.php" class="btn btn-dark">Kembali</a>
+                        <button class="btn btn-success">Update</button> |
+                        <a href="artikel.php" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
-
-                
             </div>
         </div>
-    </div>
+</div>
  
     <script>
         tinymce.init({
@@ -61,6 +69,6 @@ include('koneksi.php');
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name', 
          })
-  </script>
+    </script>
 </body>
 </html>

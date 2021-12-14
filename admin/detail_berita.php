@@ -12,8 +12,11 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
     <h1>Halaman Detail</h1>
     <hr>
 
-    <a href="edit.php?id=<?php echo $data[0]['id_berita']; ?>" class="btn btn-success">Edit</a>
-    <a href="hapus.php?id=<?php echo $data[0]['id_berita']; ?>" class="btn btn-danger">Hapus</a>
+    <a href="edit.php?id=<?php echo $data[0]['id_berita']; ?>" class="btn btn-success">Edit</a> |
+    <a href="hapus.php?id=<?php echo $data[0]['id_berita']; ?>" class="btn btn-danger">Hapus</a> |
+
+    <a href="berita.php" class="btn btn-dark" >kembali</a>
+
 
     <table border="1" class="table table-hover mt-2">
         <tr>
@@ -23,7 +26,7 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
         <tr>
             <th>Cover</th>
-            <td colspan="3"><img src="img/<?php echo $data[0]['cover']; ?>"></td>
+            <td colspan="3"><img src="img/<?php echo $data[0]['cover']; ?>" style="max-width:200px"></td>
         </tr>
 
         <tr>
