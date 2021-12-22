@@ -1,11 +1,9 @@
-<?php 
+<?php
 include('koneksi.php');
 
-
-$id =$_GET['id'];
-$query=mysqli_query($kon, "SELECT * FROM artikel where id_artikel='$id' LIMIT 1");
+$id=$_GET['id'];
+$query=mysqli_query($kon, "SELECT * FROM t_info_pendaftaran where id='$id' LIMIT 1");
 $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
@@ -14,26 +12,25 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form-Input-Data</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>
 </head>
 <body>
-
-<div class="container">
+    <div class="container">
         <div class="card">
             <div class="card-body" style="background:#EDEDED;">
-                <h2 style="text-align:center;">Form Edit Cerpen</h2>
-                <form action="update_artikel.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value=<?php echo $data[0]['id_artikel']; ?>>
+                <h2 style="text-align:center;">Form Edit Info Pendaftaran</h2>
+                <form action="upgrade-info.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value=<?php echo $data[0]['id']; ?>>
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input type="text" name="judul" value="<?php echo $data[0]['judul']; ?>" class="form-control">
+                        <label>Tanggal</label>
+                        <input type="date" name="tanggal" value="<?php echo $data[0]['tanggal']; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label>DESkripsi</label>
-                        <textarea name="konten" value="<?php echo $data[0]['isi_a']; ?>"></textarea>
+                        <label>Deskripsi</label>
+                        <textarea name="des" value="<?php echo $data[0]['deskripsi']; ?>"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -42,23 +39,13 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
                     </div>
 
                     <div class="form-group">
-                        <label>Penulis</label>
-                        <input type="text" name="penulis" value="<?php echo $data[0]['penulis']; ?>" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Tanggal</label>
-                        <input type="date" name="tanggal" value="<?php echo $data[0]['tanggal']; ?>" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-success">Update</button> |
-                        <a href="detail_artikel.php?id=<?php echo $data[0]['id_artikel']; ?>" class="btn btn-dark">Kembali</a>
+                        <button class="btn btn-success">Edit</button>
+                        <a href="info_pendaftaran.php" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
             </div>
         </div>
-</div>
+    </div>
  
     <script>
         tinymce.init({
@@ -69,6 +56,6 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
             tinycomments_mode: 'embedded',
             tinycomments_author: 'Author name', 
          })
-    </script>
+  </script>
 </body>
 </html>

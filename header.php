@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -35,8 +37,8 @@
                         PROFIL
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="sejarah_ponpes.php">Sejarah Ponpes</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="sejarah.php">Sejarah Ponpes</a>
+                        <a class="dropdown-item" href="info_pendaftaran.php">Info pendaftaran</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -49,12 +51,23 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="kcerpen.php">Cerpen</a>
                         <a class="dropdown-item" href="kpuisi.php">Puisi</a>
-                        <a class="dropdown-item" href="ks.php">Kisah Inspirasi</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="info-pendaftaran.php">INFO PENDAFTARAN SANTRI BARU</a>
+                    <a class="nav-link" href="k_artikel.php">ARTIKEL</a>
                     </li>
+
+                    <?php if (!$_SESSION) { ?>
+                        
+                    <?php } ?>
+
+                    <?php if ($_SESSION) { ?>
+                        <li class="nav-item dropdown">
+                            <a href="pertanyaan.php" class="nav-link">PERTANYAAN</a>
+                        </li>
+                    <?php } ?>
+
+                    
 
                     <?php if (!$_SESSION) { ?>
                         <li class="nav-item">
@@ -68,7 +81,7 @@
                                 <img src="user/img1.png" style="width:30px;">
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="kirim-karya.php">Kirim Karya</a>
+                                <a class="dropdown-item" href="kirim_karya.php">Kirim Karya</a>
                                 <hr>
                                 <a class="dropdown-item" href="logout.php">Logout</a>
                             </div>

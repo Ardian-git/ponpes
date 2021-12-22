@@ -1,3 +1,8 @@
+<?php
+include('koneksi.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,37 +17,17 @@
     <div class="container">
         <div class="card">
             <div class="card-body" style="background:#EDEDED;">
-                <h2 style="text-align:center;">Form Input Artikel</h2>
-                <form action="simpan_artikel.php" method="POST" enctype="multipart/form-data">
+                <h2 style="text-align:center;">Form input sejarah</h2>
+                <form action="simpan_sejarah.php" method="POST" >
 
                     <div class="form-group">
-                        <label>Judul</label>
-                        <input type="text" name="judul" class="form-control">
+                        <label>Sejarah</label>
+                        <textarea name="isi" ></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea name="isi_a" ></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Cover</label>
-                        <input type="file" name="cover" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Penulis</label>
-                        <input type="text" name="penulis" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Tanggal</label>
-                        <input type="date" name="tanggal" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <button class="btn btn-success">Tambah</button>
-                        <a href="artikel.php" class="btn btn-dark">Kembali</a>
+                        <button class="btn btn-success">Tambah</button> |
+                        <a href="cerpen.php" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
             </div>

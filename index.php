@@ -20,8 +20,6 @@ $data5=mysqli_fetch_all($query, MYSQLI_ASSOC);
 $query=mysqli_query($kon, "SELECT * FROM karya_santri where kategori='puisi' limit 1");
 $data6=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-$query=mysqli_query($kon, "SELECT * FROM karya_santri where kategori='kis' limit 1");
-$data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
         <div class="row" style="margin-top:105px;">
             <div class="col-md-8">
@@ -42,16 +40,16 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                             <?php foreach($data3 as $cerpen) { ?>
                                 <div class="carousel-item">
                                     <p style="font-size:small; color:white; position: absolute; top:310px; left:20px;"><span class="badge badge-dark">Cerpen</span> <?php echo $cerpen['tanggal']; ?></p>           
-                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="cerpen.php?id=<?php echo $cerpen['id']; ?>" style="color:white"><?php echo $cerpen['judul']; ?></a></h2>
-                                    <img src="admin/crp_img/<?php echo $cerpen['cover']; ?>" class="d-block w-100" alt="...">
+                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="cerpen.php?id=<?php echo $cerpen['id_karya']; ?>" style="color:white"><?php echo $cerpen['judul']; ?></a></h2>
+                                    <img src="admin/img_kry/<?php echo $cerpen['cover']; ?>" class="d-block w-100" style="max-height:450px">
                                 </div>
                             <?php } ?>
 
                             <?php foreach($data5 as $ul) { ?>
                                 <div class="carousel-item">
-                                    <p style="font-size:small; color:white; position: absolute; top:310px; left:20px;"><a href="kbt.php"><span class="badge badge-dark">Timba Ilmu</span></a> <?php echo $ul['tanggal']; ?></p>           
-                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="ti.php?id=<?php echo $ul['id_artikel']; ?>" style="color:white"><?php echo $ul['judul']; ?></a></h2>
-                                    <img src="admin/ti_img/<?php echo $ul['cover']; ?>" class="d-block w-100" alt="...">
+                                    <p style="font-size:small; color:white; position: absolute; top:310px; left:20px;"><a href="kbt.php"><span class="badge badge-dark">Artikel</span></a> <?php echo $ul['tanggal']; ?></p>           
+                                    <h2 style="color:white; position: absolute; top:330px; left:20px;"><a href="artikel.php?id=<?php echo $ul['id_artikel']; ?>" style="color:white"><?php echo $ul['judul']; ?></a></h2>
+                                    <img src="admin/ti_img/<?php echo $ul['cover']; ?>" class="d-block w-100" style="max-height:450px">
                                 </div>
                             <?php } ?>
 
@@ -83,7 +81,7 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                         <div class="col-md-8">
                         
                             <a href="berita.php?id=<?php echo $row['id_berita']; ?>" style="color:black" class="outline-primary"><?php echo $row['judul']; ?></a><br>
-                            <p style="font-size:small"><a href="kbt.php"><span class="badge badge-dark">Berita</span></a><?php echo $row['tanggal']; ?></p>
+                            <p style="font-size:small"><a href="k_berita.php"><span class="badge badge-dark">Berita</span></a><?php echo $row['tanggal']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -103,12 +101,12 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
-                                    <img src="admin/crp_img/<?php echo $baris['cover']; ?>" width=" 210px">
+                                    <img src="admin/img_kry/<?php echo $baris['cover']; ?>" width=" 210px">
                                 </div>
                             </div>
 
                             <div class="col-md-8">
-                                <a href="cerpen.php?id=<?php echo $baris['id']; ?>" style="color:black"><h4><?php echo $baris['judul']; ?></h4></a>
+                                <a href="cerpen.php?id=<?php echo $baris['id_karya']; ?>" style="color:black"><h4><?php echo $baris['judul']; ?></h4></a>
                                 <p><a href="kcerpen.php"><span class="badge badge-dark">Cerpen</span></a> <?php echo $baris['tanggal']; ?></p>
                             </div>
                         </div>
@@ -120,30 +118,13 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="card">
-                                    <img src="admin/pu_img/<?php echo $pu['cover']; ?>" width=" 210px">
+                                    <img src="admin/img_kry/<?php echo $pu['cover']; ?>" width=" 210px">
                                 </div>
                             </div>
 
                             <div class="col-md-8">
-                                <a href="puisi.php?id=<?php echo $pu['id']; ?>" style="color:black"><h4><?php echo $pu['judul']; ?></h4></a>
+                                <a href="puisi.php?id=<?php echo $pu['id_karya']; ?>" style="color:black"><h4><?php echo $pu['judul']; ?></h4></a>
                                 <p><a href="kpuisi.php"><span class="badge badge-dark">Puisi</span></a> <?php echo $pu['tanggal']; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
-
-                <?php foreach($data7 as $ki) { ?>
-                    <div class="shadow p-3 mt-1 bg-white rounded">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="admin/ki_img/<?php echo $ki['cover']; ?>" width=" 210px">
-                                </div>
-                            </div>
-
-                            <div class="col-md-8">
-                                <a href="kisah.php?id=<?php echo $ki['id']; ?>" style="color:black"><h4><?php echo $ki['judul']; ?></h4></a>
-                                <p><a href="ks.php"><span class="badge badge-dark">Kisah inspiratif</span></a> <?php echo $ki['tanggal']; ?></p>
                             </div>
                         </div>
                     </div>
@@ -159,7 +140,7 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
     <hr style="height: 2px; background:#93B5C6;">
 
-    <h5 style="color:#93B5C6; text-align:center;">Timba Ilmu</h5>
+    <h5 style="color:#93B5C6; text-align:center;">Artikel</h5>
     
 
         <div class="row">
@@ -173,7 +154,7 @@ $data7=mysqli_fetch_all($query, MYSQLI_ASSOC);
                             </div>
                             <div class="card" style="width:300px;  position:absolute; top:120px; left:23px;">
                                 <a href="artikel.php?id=<?php echo $ti['id_artikel']; ?>" style="color:black; padding:5px;"><b><?php echo $ti['judul']; ?></b></a>
-                                <p style="font-size:small; padding:5px;"><a href="kti.php"><span class="badge badge-dark">Timba ilmu</span></a> <?php echo $ti['tanggal']; ?></p>
+                                <p style="font-size:small; padding:5px;"><a href="k_artikel.php"><span class="badge badge-dark">Artikel</span></a> <?php echo $ti['tanggal']; ?></p>
                             </div>
                         </div>
                     </div>

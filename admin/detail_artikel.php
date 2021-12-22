@@ -38,7 +38,7 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
         </tr>
 
         <tr>
-            <th>konten</th>
+            <th>Deskripsi</th>
             <td colspan="3"><?php echo $data[0]['isi_a']; ?></td>
         </tr>
 

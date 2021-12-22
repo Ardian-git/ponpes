@@ -3,7 +3,7 @@ include('koneksi.php');
 
 
 $id =$_GET['id'];
-$query=mysqli_query($kon, "SELECT * FROM artikel where id_artikel='$id' LIMIT 1");
+$query=mysqli_query($kon, "SELECT * FROM karya_santri where id_karya='$id' LIMIT 1");
 $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 ?>
@@ -23,29 +23,24 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
 <div class="container">
         <div class="card">
             <div class="card-body" style="background:#EDEDED;">
-                <h2 style="text-align:center;">Form Edit Cerpen</h2>
-                <form action="update_artikel.php" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value=<?php echo $data[0]['id_artikel']; ?>>
+                <h2 style="text-align:center;">Form Edit Puisi</h2>
+                <form action="update_puisi.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value=<?php echo $data[0]['id_karya']; ?>>
                     <div class="form-group">
                         <label>Judul</label>
                         <input type="text" name="judul" value="<?php echo $data[0]['judul']; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label>DESkripsi</label>
-                        <textarea name="konten" value="<?php echo $data[0]['isi_a']; ?>"></textarea>
+                        <label>Deskripsi</label>
+                        <textarea name="konten" value="<?php echo $data[0]['isi_k']; ?>"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label>Cover</label>
                         <input type="file" name="cover" value="<?php echo $data[0]['cover']; ?>" class="form-control">
                     </div>
-
-                    <div class="form-group">
-                        <label>Penulis</label>
-                        <input type="text" name="penulis" value="<?php echo $data[0]['penulis']; ?>" class="form-control">
-                    </div>
-
+                    
                     <div class="form-group">
                         <label>Tanggal</label>
                         <input type="date" name="tanggal" value="<?php echo $data[0]['tanggal']; ?>" class="form-control">
@@ -53,7 +48,7 @@ $data=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
                     <div class="form-group">
                         <button class="btn btn-success">Update</button> |
-                        <a href="detail_artikel.php?id=<?php echo $data[0]['id_artikel']; ?>" class="btn btn-dark">Kembali</a>
+                        <a href="detail_puisi.php?id=<?php echo $data[0]['id_karya']; ?>" class="btn btn-dark">Kembali</a>
                     </div>
                 </form>
             </div>
